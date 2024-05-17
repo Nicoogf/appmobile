@@ -8,11 +8,24 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors:{
+        primary:{
+          DEFAULT: "hsl(var(--primary))"
+        },
+        background: {
+          DEFAULT: "hsl(var(--background))",
+          foreground: "hsl(var(--background-foreground))"
+        },
+        text:{
+          DEFAULT: "hsl(var(--text))"
+        },
       },
+    },
+    borderRadius : {
+      "4xl" : "2rem"
+    },
+    transitionDuration:{
+      DEFAULT: "150ms"
     },
   },
   plugins: [],
