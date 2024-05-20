@@ -24,7 +24,8 @@ const MenuMobile = ({ isOpen , onClose }:MenuMobileProps ) => {
              ))}
             </ul>
         </div>
-        <div className={cn('fixed bg-black/40 z-40 lg:hidden transition-all' , isOpen ? "w-full h-full right-0 top-0" : "w-0 h-0 left-0 bottom-0 delay-300" )}role='button' onClick={()=>onClose(false)}>
+        <div className={cn('fixed bg-black/40 z-40 lg:hidden transition-all' , isOpen ? "w-full h-full right-0 top-0" : "w-0 h-0 left-0 bottom-0 delay-300" )} 
+        role='button' onClick={()=> onClose(false)}>
 
         </div>
     </>
