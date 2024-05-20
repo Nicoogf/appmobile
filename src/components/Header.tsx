@@ -1,18 +1,30 @@
-import React from 'react'
-import { Logo } from './Logo'
+'use client'
+
 import Link from 'next/link'
+import Image from 'next/image'
+import { useState } from 'react'
+
+
 import { menu } from '@/assets/data'
 import { cn } from '@/lib/utils'
-import Image from 'next/image'
+
+import { Logo } from './Logo'
 import defaultImage from "../../public/default.jpg"
 
+import MenuMobile from './menu-mobile'
+
 const Header = () => {
+
+  const [showMenuMobile , setShowMenuMobile] = useState<boolean>(false)
+
   return (
+    <>
     <header className='flex items-center justify-between'>
         <section> 
          <Logo />    
         </section>
-        <section> 
+
+        <section className='hidden lg:block'> 
         <nav>
           <ul className='bg-background-foreground flex items-center gap-x-1 p-1 rounded-4xl'>
 
@@ -40,9 +52,17 @@ const Header = () => {
               <i className='fi fi-rr-settings'> </i>
             </button>
           </li>
+          <li className='lg:hidden'>
+            <button type='button' className='bg-background text-xl w-10 h-10 flex items-center justify-center rounded-4xl' onClick={()=> setShowMenuMobile(true)}> 
+            <i className='fi fi-rr-bars-staggered'> </i>
+            </button>
+          </li>
         </ul>
         </section>
     </header>
+    <MenuMobile isOpen={showMenuMobile} onClose={setShowMenuMobile}/> 
+    </>
+    
   )
 }
 
